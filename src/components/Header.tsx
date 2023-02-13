@@ -9,18 +9,19 @@ export const Header = () => {
   return (
     <Grid.Container alignItems="center" justify="space-between">
       <Grid>
-        <Image
+        <h3>Veloi</h3>
+        {/* <Image
           width={50}
           height={50}
           alt="Veloi"
           src="https://avatars.githubusercontent.com/u/85405932?v=4"
-        />
+        /> */}
       </Grid>
       <Grid>
-        <Tabs hideDivider hideBorder onChange={(tab) => router.push(`#${tab}`)}>
+        {/* <Tabs hideDivider hideBorder onChange={(tab) => router.push(`#${tab}`)}>
           <Tabs.Item value="about" label="About"></Tabs.Item>
           <Tabs.Item value="projects" label="Projects"></Tabs.Item>
-        </Tabs>
+        </Tabs> */}
       </Grid>
     </Grid.Container>
   );
