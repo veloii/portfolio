@@ -14,9 +14,9 @@ export const SelectionCards = ({
   setSelection: (selection: SelectionCard) => void;
 }) => {
   const theme = useTheme();
-  const [mobileLoading, setMobileLoading] = useState(false);
-  const [toolLoading, setToolLoading] = useState(false);
-  const [desktopLoading, setDesktopLoading] = useState(false);
+  const [mobileLoading, setMobileLoading] = useState(true);
+  const [toolLoading, setToolLoading] = useState(true);
+  const [desktopLoading, setDesktopLoading] = useState(true);
 
   const [desktopHover, setDesktopHover] = useState(false);
   const [toolHover, setToolHover] = useState(false);
@@ -47,6 +47,7 @@ export const SelectionCards = ({
             onHoverEnd={() => setMobileHover(false)}
             style={{
               position: "relative",
+              overflow: "hidden",
               width: "100%",
               height: 350,
             }}
@@ -130,6 +131,7 @@ export const SelectionCards = ({
               position: "relative",
               width: "100%",
               height: 350,
+              overflow: "hidden",
             }}
           >
             <Text
@@ -210,6 +212,7 @@ export const SelectionCards = ({
               position: "relative",
               width: "100%",
               height: 350,
+              overflow: "hidden",
             }}
           >
             <Text
@@ -247,12 +250,12 @@ export const SelectionCards = ({
       </Grid>
       <style jsx global>{`
         .unblur {
-          animation: unblur 1s linear;
+          animation: unblur 0.5s ease-in-out;
         }
 
         @keyframes unblur {
           from {
-            filter: blur(20px);
+            filter: blur(10px);
           }
           to {
             filter: blur(0);
