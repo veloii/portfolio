@@ -4,6 +4,9 @@ import { useTheme, Grid, Text } from "@geist-ui/core";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useState } from "react";
+import phone from "@/images/phone.png";
+import desktop from "@/images/desktop.png";
+import roblox from "@/images/roblox.png";
 
 export const SelectionCards = ({
   setSelection,
@@ -11,6 +14,10 @@ export const SelectionCards = ({
   setSelection: (selection: SelectionCard) => void;
 }) => {
   const theme = useTheme();
+  const [mobileLoading, setMobileLoading] = useState(false);
+  const [toolLoading, setToolLoading] = useState(false);
+  const [desktopLoading, setDesktopLoading] = useState(false);
+
   const [desktopHover, setDesktopHover] = useState(false);
   const [toolHover, setToolHover] = useState(false);
   const [mobileHover, setMobileHover] = useState(false);
@@ -85,7 +92,11 @@ export const SelectionCards = ({
             </motion.h5>
 
             <Image
-              src="/phone.png"
+              priority
+              placeholder="blur"
+              className={mobileLoading ? "unblur" : ""}
+              onLoadingComplete={() => setMobileLoading(true)}
+              src={phone}
               style={{ objectFit: "cover" }}
               draggable={false}
               alt={""}
@@ -96,7 +107,7 @@ export const SelectionCards = ({
       </Grid>
       <Grid
         css={css`
-          flex-grow: 3;
+          flex-grow: 4;
           width: 100%;
           @media (min-width: ${theme.breakpoints.lg.min}) {
             width: 350px;
@@ -161,7 +172,11 @@ export const SelectionCards = ({
               design files are provided by you
             </motion.h5>
             <Image
-              src="/desktop.png"
+              priority
+              className={desktopLoading ? "unblur" : ""}
+              onLoadingComplete={() => setDesktopLoading(true)}
+              src={desktop}
+              placeholder="blur"
               style={{ objectFit: "cover" }}
               draggable={false}
               alt={""}
@@ -217,8 +232,12 @@ export const SelectionCards = ({
             </Text>
 
             <Image
+              priority
               style={{ objectFit: "cover" }}
-              src="/roblox.png"
+              src={roblox}
+              placeholder="blur"
+              className={toolLoading ? "unblur" : ""}
+              onLoadingComplete={() => setToolLoading(true)}
               draggable={false}
               alt={""}
               fill
@@ -226,6 +245,20 @@ export const SelectionCards = ({
           </motion.div>
         </a>
       </Grid>
+      <style jsx global>{`
+        .unblur {
+          animation: unblur 1s linear;
+        }
+
+        @keyframes unblur {
+          from {
+            filter: blur(20px);
+          }
+          to {
+            filter: blur(0);
+          }
+        }
+      `}</style>
     </Grid.Container>
   );
 };
