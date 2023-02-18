@@ -12,7 +12,6 @@ export const IntroText = () => {
         css={css`
           letter-spacing: 0.025rem;
           max-width: 700px;
-          font-weight: 600;
           @media (max-width: ${theme.breakpoints.sm.max}) {
             font-size: 30px;
             max-width: none;

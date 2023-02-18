@@ -8,12 +8,9 @@ import phone from "@/images/phone.png";
 import desktop from "@/images/desktop.png";
 import roblox from "@/images/roblox.png";
 import Tilt from "react-parallax-tilt";
+import Link from "next/link";
 
-export const SelectionCards = ({
-  setSelection,
-}: {
-  setSelection: (selection: SelectionCard) => void;
-}) => {
+export const SelectionCards = () => {
   const theme = useTheme();
   const [mobileLoading, setMobileLoading] = useState(true);
   const [toolLoading, setToolLoading] = useState(true);
@@ -29,12 +26,14 @@ export const SelectionCards = ({
         css={css`
           flex-grow: 1;
           width: 100%;
-          @media (min-width: ${theme.breakpoints.lg.min}) {
+          @media (min-width: ${theme.breakpoints.md.min}) {
             width: 350px;
           }
         `}
       >
         <Tilt
+          tiltMaxAngleX={5}
+          tiltMaxAngleY={5}
           style={{ transformStyle: "preserve-3d" }}
           perspective={500}
           tiltReverse
@@ -74,7 +73,7 @@ export const SelectionCards = ({
           >
             Mobile Apps
           </Text>
-          <a onClick={() => setSelection("mobile")}>
+          <Link href="/mobile-apps">
             <motion.div
               transition={{ duration: 0.5, type: "spring" }}
               animate={{
@@ -108,7 +107,7 @@ export const SelectionCards = ({
               <Image
                 priority
                 className={mobileLoading ? "unblur" : ""}
-                onLoadingComplete={() => setToolLoading(true)}
+                onLoadingComplete={() => setMobileLoading(true)}
                 src={phone}
                 placeholder="blur"
                 style={{ objectFit: "cover" }}
@@ -117,19 +116,21 @@ export const SelectionCards = ({
                 fill
               />
             </motion.div>
-          </a>
+          </Link>
         </Tilt>
       </Grid>
       <Grid
         css={css`
           flex-grow: 4;
           width: 100%;
-          @media (min-width: ${theme.breakpoints.lg.min}) {
+          @media (min-width: ${theme.breakpoints.md.min}) {
             width: 350px;
           }
         `}
       >
         <Tilt
+          tiltMaxAngleX={5}
+          tiltMaxAngleY={5}
           style={{ transformStyle: "preserve-3d" }}
           perspective={500}
           tiltReverse
@@ -169,7 +170,7 @@ export const SelectionCards = ({
           >
             Fully Functional Dashboards
           </Text>
-          <a onClick={() => setSelection("dashboard")}>
+          <Link href="/mobile-apps">
             <motion.div
               transition={{ duration: 0.5, type: "spring" }}
               animate={{
@@ -212,19 +213,21 @@ export const SelectionCards = ({
                 fill
               />
             </motion.div>
-          </a>
+          </Link>
         </Tilt>
       </Grid>
       <Grid
         css={css`
           flex-grow: 1;
           width: 100%;
-          @media (min-width: ${theme.breakpoints.lg.min}) {
+          @media (min-width: ${theme.breakpoints.md.min}) {
             width: 350px;
           }
         `}
       >
         <Tilt
+          tiltMaxAngleX={5}
+          tiltMaxAngleY={5}
           style={{ transformStyle: "preserve-3d" }}
           perspective={500}
           tiltReverse
@@ -245,7 +248,7 @@ export const SelectionCards = ({
           >
             Simple Tools
           </Text>
-          <a onClick={() => setSelection("tools")}>
+          <Link href="/mobile-apps">
             <motion.div
               transition={{ duration: 0.5, type: "spring" }}
               animate={{
@@ -288,7 +291,7 @@ export const SelectionCards = ({
                 fill
               />
             </motion.div>
-          </a>
+          </Link>
         </Tilt>
       </Grid>
       <style jsx global>{`
