@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import phone from "@/images/phone.png";
 import desktop from "@/images/desktop.png";
 import roblox from "@/images/roblox.png";
+import Tilt from "react-parallax-tilt";
 
 export const SelectionCards = ({
   setSelection,
@@ -23,7 +24,7 @@ export const SelectionCards = ({
   const [mobileHover, setMobileHover] = useState(false);
 
   return (
-    <Grid.Container style={{ gap: 16, maxWidth: 1530 }}>
+    <Grid.Container style={{ gap: 32, maxWidth: 1530 }}>
       <Grid
         css={css`
           flex-grow: 1;
@@ -33,78 +34,91 @@ export const SelectionCards = ({
           }
         `}
       >
-        <a onClick={() => setSelection("mobile")}>
-          <motion.div
-            whileHover={{
-              scale: 1.025,
-            }}
-            transition={{ duration: 0.5, type: "spring" }}
+        <Tilt
+          style={{ transformStyle: "preserve-3d" }}
+          perspective={500}
+          tiltReverse
+          transitionSpeed={2000}
+        >
+          <motion.h5
+            initial={{ opacity: 0, translateY: 5, translateZ: 25 }}
             animate={{
-              opacity: toolHover || desktopHover ? 0.5 : 1,
-              scale: toolHover || desktopHover ? 0.95 : 1,
+              opacity: mobileHover ? 1 : 0,
+              translateY: mobileHover ? 0 : 5,
+              translateZ: 20,
             }}
-            onHoverStart={() => setMobileHover(true)}
-            onHoverEnd={() => setMobileHover(false)}
             style={{
-              position: "relative",
-              overflow: "hidden",
+              fontStyle: "italic",
+              position: "absolute",
               width: "100%",
-              height: 350,
+              left: 12.5 + 36,
+              bottom: 50,
+              color: "white",
+              pointerEvents: "none",
             }}
           >
-            <Text
-              h3
-              style={{
-                background:
-                  "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(100, 120, 255, 1) 90%)",
-                position: "absolute",
-                width: "100%",
-                paddingBottom: 18,
-                paddingTop: 64,
-                color: "white",
-                paddingLeft: 36,
-                left: 0,
-                zIndex: 2,
-                bottom: -12,
-              }}
-            >
-              Mobile Apps
-            </Text>
-            <motion.h5
-              initial={{ opacity: 0, translateY: 5 }}
+            design files are provided by you
+          </motion.h5>
+          <Text
+            h3
+            style={{
+              transform: "translateZ(30px)",
+              position: "absolute",
+              width: "100%",
+              pointerEvents: "none",
+              color: "white",
+              zIndex: 20,
+              left: 15 + 36,
+              bottom: 18,
+            }}
+          >
+            Mobile Apps
+          </Text>
+          <a onClick={() => setSelection("mobile")}>
+            <motion.div
+              transition={{ duration: 0.5, type: "spring" }}
               animate={{
-                opacity: mobileHover ? 1 : 0,
-                translateY: mobileHover ? 0 : 5,
+                opacity: desktopHover || toolHover ? 0.5 : 1,
               }}
+              onHoverStart={() => setMobileHover(true)}
+              onHoverEnd={() => setMobileHover(false)}
               style={{
-                fontStyle: "italic",
-                position: "absolute",
+                position: "relative",
                 width: "100%",
-                paddingBottom: 18,
-                paddingTop: 64,
-                color: "white",
-                paddingLeft: 36,
-                left: 0,
-                zIndex: 2,
-                bottom: 20,
+                height: 350,
+                overflow: "hidden",
               }}
             >
-              design files are provided by you
-            </motion.h5>
-
-            <Image
-              priority
-              placeholder="blur"
-              className={mobileLoading ? "unblur" : ""}
-              onLoadingComplete={() => setMobileLoading(true)}
-              src={phone}
-              style={{ objectFit: "cover" }}
-              draggable={false}
-              alt={""}
-              fill
-            />
-          </motion.div>
-        </a>
+              <div
+                style={{
+                  background:
+                    "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(100, 120, 255, 1) 90%)",
+                  position: "absolute",
+                  width: "100%",
+                  paddingBottom: 18,
+                  paddingTop: 64,
+                  height: 200,
+                  color: "white",
+                  paddingLeft: 36,
+                  left: 0,
+                  zIndex: 2,
+                  bottom: -12,
+                }}
+              ></div>
+              <Image
+                priority
+                className={mobileLoading ? "unblur" : ""}
+                onLoadingComplete={() => setToolLoading(true)}
+                src={phone}
+                placeholder="blur"
+                style={{ objectFit: "cover" }}
+                draggable={false}
+                alt={""}
+                fill
+              />
+            </motion.div>
+          </a>
+        </Tilt>
       </Grid>
       <Grid
         css={css`
@@ -115,77 +129,91 @@ export const SelectionCards = ({
           }
         `}
       >
-        <a onClick={() => setSelection("dashboard")}>
-          <motion.div
-            whileHover={{
-              scale: 1.025,
-            }}
-            transition={{ duration: 0.5, type: "spring" }}
+        <Tilt
+          style={{ transformStyle: "preserve-3d" }}
+          perspective={500}
+          tiltReverse
+          transitionSpeed={2000}
+        >
+          <motion.h5
+            initial={{ opacity: 0, translateY: 5, translateZ: 25 }}
             animate={{
-              opacity: toolHover || mobileHover ? 0.5 : 1,
-              scale: toolHover || mobileHover ? 0.95 : 1,
+              opacity: desktopHover ? 1 : 0,
+              translateY: desktopHover ? 0 : 5,
+              translateZ: 20,
             }}
-            onHoverStart={() => setDesktopHover(true)}
-            onHoverEnd={() => setDesktopHover(false)}
             style={{
-              position: "relative",
+              fontStyle: "italic",
+              position: "absolute",
               width: "100%",
-              height: 350,
-              overflow: "hidden",
+              left: 12.5 + 36,
+              bottom: 50,
+              color: "white",
+              pointerEvents: "none",
             }}
           >
-            <Text
-              h3
-              style={{
-                background:
-                  "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(255, 0, 255, 1) 90%)",
-                position: "absolute",
-                width: "100%",
-                paddingBottom: 18,
-                paddingTop: 64,
-                color: "white",
-                paddingLeft: 36,
-                left: 0,
-                zIndex: 2,
-                bottom: -12,
-              }}
-            >
-              Fully Functional Dashboards
-            </Text>
-            <motion.h5
-              initial={{ opacity: 0, translateY: 5 }}
+            design files are provided by you
+          </motion.h5>
+          <Text
+            h3
+            style={{
+              transform: "translateZ(30px)",
+              position: "absolute",
+              width: "100%",
+              pointerEvents: "none",
+              color: "white",
+              zIndex: 20,
+              left: 15 + 36,
+              bottom: 18,
+            }}
+          >
+            Fully Functional Dashboards
+          </Text>
+          <a onClick={() => setSelection("dashboard")}>
+            <motion.div
+              transition={{ duration: 0.5, type: "spring" }}
               animate={{
-                opacity: desktopHover ? 1 : 0,
-                translateY: desktopHover ? 0 : 5,
+                opacity: toolHover || mobileHover ? 0.5 : 1,
               }}
+              onHoverStart={() => setDesktopHover(true)}
+              onHoverEnd={() => setDesktopHover(false)}
               style={{
-                fontStyle: "italic",
-                position: "absolute",
+                position: "relative",
                 width: "100%",
-                paddingBottom: 18,
-                paddingTop: 64,
-                color: "white",
-                paddingLeft: 36,
-                left: 0,
-                zIndex: 2,
-                bottom: 20,
+                height: 350,
+                overflow: "hidden",
               }}
             >
-              design files are provided by you
-            </motion.h5>
-            <Image
-              priority
-              className={desktopLoading ? "unblur" : ""}
-              onLoadingComplete={() => setDesktopLoading(true)}
-              src={desktop}
-              placeholder="blur"
-              style={{ objectFit: "cover" }}
-              draggable={false}
-              alt={""}
-              fill
-            />
-          </motion.div>
-        </a>
+              <div
+                style={{
+                  background:
+                    "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(255, 0, 255, 1) 90%)",
+                  position: "absolute",
+                  width: "100%",
+                  paddingBottom: 18,
+                  paddingTop: 64,
+                  height: 200,
+                  color: "white",
+                  paddingLeft: 36,
+                  left: 0,
+                  zIndex: 2,
+                  bottom: -12,
+                }}
+              ></div>
+              <Image
+                priority
+                className={desktopLoading ? "unblur" : ""}
+                onLoadingComplete={() => setDesktopLoading(true)}
+                src={desktop}
+                placeholder="blur"
+                style={{ objectFit: "cover" }}
+                draggable={false}
+                alt={""}
+                fill
+              />
+            </motion.div>
+          </a>
+        </Tilt>
       </Grid>
       <Grid
         css={css`
@@ -196,57 +224,72 @@ export const SelectionCards = ({
           }
         `}
       >
-        <a onClick={() => setSelection("tools")}>
-          <motion.div
-            whileHover={{
-              scale: 1.025,
-            }}
-            transition={{ duration: 0.5, type: "spring" }}
-            animate={{
-              opacity: desktopHover || mobileHover ? 0.5 : 1,
-              scale: desktopHover || mobileHover ? 0.95 : 1,
-            }}
-            onHoverStart={() => setToolHover(true)}
-            onHoverEnd={() => setToolHover(false)}
+        <Tilt
+          style={{ transformStyle: "preserve-3d" }}
+          perspective={500}
+          tiltReverse
+          transitionSpeed={2000}
+        >
+          <Text
+            h3
             style={{
-              position: "relative",
+              transform: "translateZ(30px)",
+              position: "absolute",
               width: "100%",
-              height: 350,
-              overflow: "hidden",
+              pointerEvents: "none",
+              color: "white",
+              zIndex: 20,
+              left: 15 + 36,
+              bottom: 18,
             }}
           >
-            <Text
-              h3
+            Simple Tools
+          </Text>
+          <a onClick={() => setSelection("tools")}>
+            <motion.div
+              transition={{ duration: 0.5, type: "spring" }}
+              animate={{
+                opacity: desktopHover || mobileHover ? 0.5 : 1,
+              }}
+              onHoverStart={() => setToolHover(true)}
+              onHoverEnd={() => setToolHover(false)}
               style={{
-                background:
-                  "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(200, 0, 105, 1) 90%)",
-                position: "absolute",
+                position: "relative",
                 width: "100%",
-                paddingBottom: 18,
-                paddingTop: 64,
-                color: "white",
-                paddingLeft: 36,
-                left: 0,
-                zIndex: 2,
-                bottom: -12,
+                height: 350,
+                overflow: "hidden",
               }}
             >
-              Simple Tools
-            </Text>
-
-            <Image
-              priority
-              style={{ objectFit: "cover" }}
-              src={roblox}
-              placeholder="blur"
-              className={toolLoading ? "unblur" : ""}
-              onLoadingComplete={() => setToolLoading(true)}
-              draggable={false}
-              alt={""}
-              fill
-            />
-          </motion.div>
-        </a>
+              <div
+                style={{
+                  background:
+                    "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(200, 0, 105, 1) 90%)",
+                  position: "absolute",
+                  width: "100%",
+                  paddingBottom: 18,
+                  paddingTop: 64,
+                  height: 200,
+                  color: "white",
+                  paddingLeft: 36,
+                  left: 0,
+                  zIndex: 2,
+                  bottom: -12,
+                }}
+              ></div>
+              <Image
+                priority
+                className={toolLoading ? "unblur" : ""}
+                onLoadingComplete={() => setToolLoading(true)}
+                src={roblox}
+                placeholder="blur"
+                style={{ objectFit: "cover" }}
+                draggable={false}
+                alt={""}
+                fill
+              />
+            </motion.div>
+          </a>
+        </Tilt>
       </Grid>
       <style jsx global>{`
         .unblur {
