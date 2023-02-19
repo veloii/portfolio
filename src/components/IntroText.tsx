@@ -18,7 +18,7 @@ export const IntroText = () => {
           }
         `}
       >
-        Hi, I am Veloi. I&apos;m web developer experienced in React + UIs.
+        Hi, I am Veloi. I&apos;m a web developer experienced in React + UIs.
       </h1>
       <Link href="">
         <p
