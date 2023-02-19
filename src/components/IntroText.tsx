@@ -25,7 +25,7 @@ export const IntroText = () => {
           className="hover-arrow-text"
           style={{ color: theme.palette.accents_4, fontSize: 20 }}
         >
-          Interested in a website? Contact me{" "}
+          Interested in a website? Get in touch{" "}
           <svg
             className="hover-arrow"
             width="12"

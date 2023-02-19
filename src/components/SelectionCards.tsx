@@ -232,6 +232,11 @@ export const SelectionCards = () => {
           perspective={500}
           tiltReverse
           transitionSpeed={2000}
+          glareEnable={true}
+          glareMaxOpacity={0.8}
+          glareColor="#ffffff"
+          glarePosition="bottom"
+          glareBorderRadius="20px"
         >
           <Text
             h3
