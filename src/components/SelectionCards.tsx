@@ -38,6 +38,11 @@ export const SelectionCards = () => {
           perspective={500}
           tiltReverse
           transitionSpeed={2000}
+          glareEnable={true}
+          glareMaxOpacity={0.8}
+          glareColor="#ffffff"
+          glarePosition="bottom"
+          glareBorderRadius="0px"
         >
           <motion.h5
             initial={{ opacity: 0, translateY: 5, translateZ: 25 }}
@@ -77,7 +82,8 @@ export const SelectionCards = () => {
             <motion.div
               transition={{ duration: 0.5, type: "spring" }}
               animate={{
-                opacity: unifiedBookmarksHover || randomRobloxGameHover ? 0.5 : 1,
+                opacity:
+                  unifiedBookmarksHover || randomRobloxGameHover ? 0.5 : 1,
               }}
               onHoverStart={() => setMvpAppHover(true)}
               onHoverEnd={() => setMvpAppHover(false)}
@@ -135,6 +141,11 @@ export const SelectionCards = () => {
           perspective={500}
           tiltReverse
           transitionSpeed={2000}
+          glareEnable={true}
+          glareMaxOpacity={0.8}
+          glareColor="#ffffff"
+          glarePosition="bottom"
+          glareBorderRadius="0px"
         >
           <motion.h5
             initial={{ opacity: 0, translateY: 5, translateZ: 25 }}
@@ -236,7 +247,7 @@ export const SelectionCards = () => {
           glareMaxOpacity={0.8}
           glareColor="#ffffff"
           glarePosition="bottom"
-          glareBorderRadius="20px"
+          glareBorderRadius="0px"
         >
           <motion.h5
             initial={{ opacity: 0, translateY: 5, translateZ: 25 }}

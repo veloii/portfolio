@@ -1,49 +1,68 @@
-/* eslint-disable react/jsx-key */
 import { Page, Spacer, Text, useTheme } from "@geist-ui/core";
 import Image from "next/image";
 import React from "react";
 import { Carousel } from "../components/Carousel";
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import mvpApp1 from "@/images/mvp-app/1.png";
+import mvpApp2 from "@/images/mvp-app/2.png";
+import mvpApp3 from "@/images/mvp-app/3.png";
+import mvpApp4 from "@/images/mvp-app/4.png";
+import mvpApp5 from "@/images/mvp-app/5.png";
 
 const handleDragStart: React.DragEventHandler<HTMLImageElement> = (e) =>
   e.preventDefault();
 
 const items = [
   <Image
+    key="mvpApp1"
     width={404 / 1.5}
     onDragStart={handleDragStart}
     height={830 / 1.5}
-    src="/mobile/1.png"
+    src={mvpApp1}
     alt={""}
+    placeholder="blur"
+    priority
   />,
   <Image
+    key="mvpApp2"
     width={404 / 1.5}
     onDragStart={handleDragStart}
     height={830 / 1.5}
-    src="/mobile/2.png"
+    src={mvpApp2}
     alt={""}
+    placeholder="blur"
+    priority
   />,
   <Image
+    key="mvpApp3"
     width={404 / 1.5}
     onDragStart={handleDragStart}
     height={830 / 1.5}
-    src="/mobile/3.png"
+    src={mvpApp3}
     alt={""}
+    placeholder="blur"
+    priority
   />,
   <Image
+    key="mvpApp4"
     width={404 / 1.5}
     onDragStart={handleDragStart}
     height={830 / 1.5}
-    src="/mobile/4.png"
+    src={mvpApp4}
     alt={""}
+    placeholder="blur"
+    priority
   />,
   <Image
+    key="mvpApp5"
     width={404 / 1.5}
     onDragStart={handleDragStart}
     height={830 / 1.5}
-    src="/mobile/5.png"
+    src={mvpApp5}
     alt={""}
+    placeholder="blur"
+    priority
   />,
 ];
 
