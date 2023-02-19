@@ -12,18 +12,35 @@ export const IntroText = () => {
         css={css`
           letter-spacing: 0.025rem;
           max-width: 700px;
-          @media (max-width: ${theme.breakpoints.sm.max}) {
-            font-size: 30px;
-            max-width: none;
+          @media (max-width: ${theme.breakpoints.xs.max}) {
+            display: none;
           }
         `}
       >
-        Hi, I am Veloi. I&apos;m a web developer experienced in React + UIs.
+        Hi, I am Veloi. I&apos;m a software developer experienced in React +
+        UIs.
+      </h1>
+      <h1
+        css={css`
+          font-size: 30px;
+          display: none;
+          @media (max-width: ${theme.breakpoints.xs.max}) {
+            display: block;
+          }
+        `}
+      >
+        Hi, I am Veloi. A software developer.
       </h1>
       <Link href="">
         <p
           className="hover-arrow-text"
-          style={{ color: theme.palette.link, fontSize: 20 }}
+          css={css`
+            font-size: 1.1rem;
+            @media (min-width: ${theme.breakpoints.sm.min}) {
+              font-size: 1.25rem;
+            }
+          `}
+          style={{ color: theme.palette.link }}
         >
           Interested in a website? Get in touch{" "}
           <svg

@@ -9,7 +9,9 @@ import mvpApp2 from "@/images/mvp-app/2.png";
 import mvpApp3 from "@/images/mvp-app/3.png";
 import mvpApp4 from "@/images/mvp-app/4.png";
 import mvpApp5 from "@/images/mvp-app/5.png";
+import MvpSvg from "@/images/mvp.svg";
 import { ArrowRight } from "@geist-ui/react-icons";
+import { css } from "@emotion/react";
 
 const handleDragStart: React.DragEventHandler<HTMLImageElement> = (e) =>
   e.preventDefault();
@@ -72,7 +74,7 @@ const MobileApps = () => {
 
   return (
     <Layout>
-      <Page className="page-responsive">
+      <Page style={{ maxWidth: 1000 }} className="page-responsive">
         <Page.Header height={0.25}>
           <Link href="/">
             <p
@@ -100,7 +102,19 @@ const MobileApps = () => {
           </Link>
         </Page.Header>
         <Page.Content>
-          <Text h1>My Virtual Pet App</Text>
+          <MvpSvg
+            style={{ transform: "scale(0.5)", transformOrigin: "center left" }}
+          />
+          <h1
+            css={css`
+              font-size: 2.25rem;
+              @media (min-width: ${theme.breakpoints.sm.min}) {
+                font-size: 3rem;
+              }
+            `}
+          >
+            My Virtual Pet App
+          </h1>
           <Text h4 style={{ fontWeight: 500 }}>
             A tamagotchi style take care of your pet game.
           </Text>
@@ -123,8 +137,17 @@ const MobileApps = () => {
             width={30}
             style={{ background: theme.palette.accents_2 }}
           />
-          <Text h2>Overview</Text>
-          <Text style={{ maxWidth: 700 }} p>
+          <h2
+            css={css`
+              font-size: 2rem;
+              @media (min-width: ${theme.breakpoints.sm.min}) {
+                font-size: 2.25rem;
+              }
+            `}
+          >
+            Overview
+          </h2>
+          <Text style={{ maxWidth: 900 }} p>
             My Virtual Pet to bring people closer together by letting them feed
             and care for virtual pets. It was originally a web app with 3d pets
             and activities such as taking your pet to the cinema with your
@@ -140,8 +163,17 @@ const MobileApps = () => {
             width={30}
             style={{ background: theme.palette.accents_2 }}
           />
-          <Text h2>Technical Details</Text>
-          <Text style={{ maxWidth: 700 }} p>
+          <h2
+            css={css`
+              font-size: 2rem;
+              @media (min-width: ${theme.breakpoints.sm.min}) {
+                font-size: 2.25rem;
+              }
+            `}
+          >
+            Technical Details
+          </h2>
+          <Text style={{ maxWidth: 900 }} p>
             The My Virtual Pet app is built with{" "}
             <Link
               href="https://reactnative.dev"
@@ -181,7 +213,7 @@ const MobileApps = () => {
             </Link>
             . This provides an easy way to implement avatars.
           </Text>
-          <Text style={{ maxWidth: 700 }} p>
+          <Text style={{ maxWidth: 900 }} p>
             I am using Vercel to host any promotional page and for the backend
             I&apos;m using the free tier of{" "}
             <Link href="https://fly.io" target="_blank" rel="noreferrer">
@@ -209,7 +241,16 @@ const MobileApps = () => {
             style={{ background: theme.palette.accents_2 }}
           />
           <Spacer /> <Spacer />
-          <Text h2>Screenshots</Text>
+          <h2
+            css={css`
+              font-size: 2rem;
+              @media (min-width: ${theme.breakpoints.sm.min}) {
+                font-size: 2.25rem;
+              }
+            `}
+          >
+            Screenshots
+          </h2>
           <Spacer />
           <Carousel gap={32} items={items} />
           <Spacer />
