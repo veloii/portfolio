@@ -23,7 +23,7 @@ export const IntroText = () => {
       <Link href="">
         <p
           className="hover-arrow-text"
-          style={{ color: theme.palette.accents_4, fontSize: 20 }}
+          style={{ color: theme.palette.link, fontSize: 20 }}
         >
           Interested in a website? Get in touch{" "}
           <svg
