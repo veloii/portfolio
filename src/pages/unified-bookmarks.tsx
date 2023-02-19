@@ -4,12 +4,12 @@ import React from "react";
 import { Carousel } from "../components/Carousel";
 import Link from "next/link";
 import Layout from "@/components/Layout";
-import mvpApp1 from "@/images/mvp-app/1.png";
-import mvpApp2 from "@/images/mvp-app/2.png";
-import mvpApp3 from "@/images/mvp-app/3.png";
-import mvpApp4 from "@/images/mvp-app/4.png";
-import mvpApp5 from "@/images/mvp-app/5.png";
-import MvpSvg from "@/images/mvp.svg";
+import unifiedBookmarks1 from "@/images/unified-bookmarks/unified-bookmarks-light-add.webp";
+import unifiedBookmarks2 from "@/images/unified-bookmarks/unified-bookmarks-light-overview.webp";
+import unifiedBookmarks3 from "@/images/unified-bookmarks/unified-bookmarks-light-home.webp";
+import unifiedBookmarks4 from "@/images/unified-bookmarks/unified-bookmarks-light-settings.webp";
+import unifiedBookmarks5 from "@/images/unified-bookmarks/unified-bookmarks-light-mobile-overview.webp";
+import unLogo from "@/images/un-logo.png";
 import { ArrowRight } from "@geist-ui/react-icons";
 import { css } from "@emotion/react";
 
@@ -18,58 +18,61 @@ const handleDragStart: React.DragEventHandler<HTMLImageElement> = (e) =>
 
 const items = [
   <Image
-    key="mvpApp1"
-    width={404 / 1.5}
+    key="unifiedBookmarks3"
+    width={2560 / 3}
     onDragStart={handleDragStart}
-    height={830 / 1.5}
-    src={mvpApp1}
+    height={1390 / 3}
+    src={unifiedBookmarks3}
     alt={""}
     placeholder="blur"
     priority
   />,
   <Image
-    key="mvpApp2"
-    width={404 / 1.5}
+    key="unifiedBookmarks1"
+    width={2560 / 3}
     onDragStart={handleDragStart}
-    height={830 / 1.5}
-    src={mvpApp2}
+    height={1390 / 3}
+    style={{ objectFit: "contain" }}
+    src={unifiedBookmarks1}
     alt={""}
     placeholder="blur"
     priority
   />,
   <Image
-    key="mvpApp3"
-    width={404 / 1.5}
+    key="unifiedBookmarks5"
+    width={625 * 0.39099859353}
     onDragStart={handleDragStart}
-    height={830 / 1.5}
-    src={mvpApp3}
+    height={1185 * 0.39099859353}
+    src={unifiedBookmarks5}
     alt={""}
     placeholder="blur"
     priority
   />,
   <Image
-    key="mvpApp4"
-    width={404 / 1.5}
+    key="unifiedBookmarks2"
+    width={2560 / 3}
+    style={{ objectFit: "contain" }}
     onDragStart={handleDragStart}
-    height={830 / 1.5}
-    src={mvpApp4}
+    height={1390 / 3}
+    src={unifiedBookmarks2}
     alt={""}
     placeholder="blur"
     priority
   />,
+
   <Image
-    key="mvpApp5"
-    width={404 / 1.5}
+    key="unifiedBookmarks4"
+    width={2560 / 3}
     onDragStart={handleDragStart}
-    height={830 / 1.5}
-    src={mvpApp5}
+    height={1390 / 3}
+    src={unifiedBookmarks4}
     alt={""}
     placeholder="blur"
     priority
   />,
 ];
 
-const MobileApps = () => {
+const UnfiiedBookmarks = () => {
   const theme = useTheme();
 
   return (
@@ -102,8 +105,15 @@ const MobileApps = () => {
           </Link>
         </Page.Header>
         <Page.Content>
-          <MvpSvg
-            style={{ transform: "scale(0.5)", transformOrigin: "center left" }}
+          <Image
+            src={unLogo}
+            width={75}
+            style={{
+              backgroundColor: theme.palette.border,
+              borderRadius: 10,
+            }}
+            height={75}
+            alt={"Unified Bookmarks Logo"}
           />
           <h1
             css={css`
@@ -113,21 +123,35 @@ const MobileApps = () => {
               }
             `}
           >
-            My Virtual Pet App
+            Unified Bookmarks
           </h1>
           <Text h4 style={{ fontWeight: 500 }}>
-            A tamagotchi style take care of your pet game.
+            A service which provides an easy bookmarking solution for teams.
           </Text>
-          <Text>- Full android & iOS support</Text>
-          <Text>- App in early beta</Text>
           <Text>
-            - Created with{" "}
+            -{" "}
             <Link
-              href="https://reactnative.dev"
+              href="https://chrome.google.com/webstore/detail/unified-bookmarks/emjpjmbbmgcoonobpecgblohfknagmhg/"
               target="_blank"
               rel="noreferrer"
             >
-              React Native
+              Chrome extension
+            </Link>
+          </Text>
+          <Text>
+            - Available at{" "}
+            <Link
+              href="https://unifiedbookmarks.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              unifiedbookmarks.com
+            </Link>
+          </Text>
+          <Text>
+            - Created with{" "}
+            <Link href="https://remix.run" target="_blank" rel="noreferrer">
+              Remix with React
             </Link>
           </Text>
           <Spacer />
@@ -148,13 +172,12 @@ const MobileApps = () => {
             Overview
           </h2>
           <Text style={{ maxWidth: 900 }} p>
-            My Virtual Pet to bring people closer together by letting them feed
-            and care for virtual pets. It was originally a web app with 3d pets
-            and activities such as taking your pet to the cinema with your
-            friends or washing, cuddling with your pet. Later, I abandoned the
-            web app and started working on a mobile app which I am yet to
-            complete. The mobile app features 3d pets and 2d &apos;pixel
-            pets&apos;.
+            Unified Bookmarks is a service to make sharing bookmarks between
+            small teams easier. It works by you installing a chrome extension
+            which mirrors the bookmarks of each team into a folder it creates.
+            This fully syncs between Unified Bookmarks and your browser. You can
+            invite people to your team to share the same bookmarks, or use it as
+            a simple bookmark share between your devices.
           </Text>
           <Spacer />
           <Spacer
@@ -174,56 +197,63 @@ const MobileApps = () => {
             Technical Details
           </h2>
           <Text style={{ maxWidth: 900 }} p>
-            The My Virtual Pet app is built with{" "}
+            Unified Bookmarks is using{" "}
+            <Link href="https://reactjs.org" target="_blank" rel="noreferrer">
+              React
+            </Link>
+            , more specifically{" "}
+            <Link href="https://remix.run" target="_blank" rel="noreferrer">
+              Remix
+            </Link>
+            . This provides a simple way to unify the API/Backend and the client
+            app. It&apos;s using a{" "}
             <Link
-              href="https://reactnative.dev"
+              href="https://www.postgresql.org/"
               target="_blank"
               rel="noreferrer"
             >
-              React Native
+              PostgreSQL
             </Link>{" "}
-            &{" "}
-            <Link href="https://expo.dev" target="_blank" rel="noreferrer">
-              Expo
-            </Link>{" "}
-            to support iOS and Android devices. For the backend I originally
-            used{" "}
+            database with{" "}
             <Link href="https://prisma.io" target="_blank" rel="noreferrer">
               Prisma
             </Link>{" "}
-            on a{" "}
-            <Link href="https://socket.io" target="_blank" rel="noreferrer">
-              Socket.IO
+            on top. The frontend UI is using{" "}
+            <Link
+              href="https://tailwindcss.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              TailwindCSS
             </Link>{" "}
-            server. However, instead of a Socket.IO server, I&apos;m using{" "}
-            <Link
-              href="https://apollographql.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Apollo GraphQL
+            with{" "}
+            <Link href="https://daisyui.com/" target="_blank" rel="noreferrer">
+              DaisyUI
             </Link>
-            . For authentication, I&apos;m using{" "}
-            <Link
-              href="https://discord.com/developers/docs/topics/oauth2"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Discord OAuth2
-            </Link>
-            . This provides an easy way to implement avatars.
+            . The chrome extension is simple plain Javascript, which sends get
+            requests frequently to an endpoint on the server which returns the
+            necessary bookmarks. It checks if each bookmark matches and if not
+            updates it. If the user edits a bookmark it sends a post request to
+            an endpoint on the server which simply updates the team / bookmark.
           </Text>
           <Text style={{ maxWidth: 900 }} p>
             I am using{" "}
-            <Link href="https://vercel.com" target="_blank" rel="noreferrer">
-              Vercel
-            </Link>{" "}
-            to host any promotional page and for the backend I&apos;m using the
-            free tier of{" "}
             <Link href="https://fly.io" target="_blank" rel="noreferrer">
               Fly.io
-            </Link>
-            .
+            </Link>{" "}
+            to host the{" "}
+            <Link href="https://remix.run/" target="_blank" rel="noreferrer">
+              Remix App
+            </Link>{" "}
+            and the{" "}
+            <Link
+              href="https://postgresql.org/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              PostgreSQL
+            </Link>{" "}
+            database.
           </Text>
           <Spacer />
           <Spacer
@@ -233,7 +263,7 @@ const MobileApps = () => {
             style={{ background: theme.palette.accents_2 }}
           />
           <Text style={{ maxWidth: 700 }} h3>
-            Want your own app?
+            Want your own website?
           </Text>
           <Button iconRight={<ArrowRight size={20} />} type="success" shadow>
             <p style={{ paddingRight: 20 }}>Get in touch</p>
@@ -264,4 +294,4 @@ const MobileApps = () => {
   );
 };
 
-export default MobileApps;
+export default UnfiiedBookmarks;

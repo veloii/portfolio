@@ -32,8 +32,8 @@ export const SelectionCards = () => {
         `}
       >
         <Tilt
-          tiltMaxAngleX={5}
-          tiltMaxAngleY={5}
+          tiltMaxAngleX={2}
+          tiltMaxAngleY={2}
           style={{ transformStyle: "preserve-3d" }}
           perspective={500}
           tiltReverse
@@ -135,8 +135,8 @@ export const SelectionCards = () => {
         `}
       >
         <Tilt
-          tiltMaxAngleX={5}
-          tiltMaxAngleY={5}
+          tiltMaxAngleX={2}
+          tiltMaxAngleY={2}
           style={{ transformStyle: "preserve-3d" }}
           perspective={500}
           tiltReverse
@@ -181,7 +181,7 @@ export const SelectionCards = () => {
           >
             Unified Bookmarks
           </Text>
-          <Link href="/mobile-apps">
+          <Link href="/unified-bookmarks">
             <motion.div
               transition={{ duration: 0.5, type: "spring" }}
               animate={{
@@ -237,8 +237,8 @@ export const SelectionCards = () => {
         `}
       >
         <Tilt
-          tiltMaxAngleX={5}
-          tiltMaxAngleY={5}
+          tiltMaxAngleX={2}
+          tiltMaxAngleY={2}
           style={{ transformStyle: "preserve-3d" }}
           perspective={500}
           tiltReverse
@@ -283,7 +283,7 @@ export const SelectionCards = () => {
           >
             Random Roblox Game
           </Text>
-          <Link href="/mobile-apps">
+          <Link href="/random-roblox-game">
             <motion.div
               transition={{ duration: 0.5, type: "spring" }}
               animate={{

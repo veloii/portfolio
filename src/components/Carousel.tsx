@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import { Button } from "@geist-ui/core";
 import { ArrowLeft, ArrowRight } from "@geist-ui/react-icons";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export const Carousel = (props: {
   items: JSX.Element[];
@@ -9,54 +9,114 @@ export const Carousel = (props: {
   maxWidth?: string;
 }) => {
   const itemsDiv = useRef<HTMLDivElement>(null);
+  const virtualScroll = useRef(0);
   const fadeLeftRef = useRef<HTMLDivElement>(null);
   const fadeRightRef = useRef<HTMLDivElement>(null);
   const [showLeftButton, setShowLeftButton] = useState<boolean>(false);
   const [showRightButton, setShowRightButton] = useState<boolean>(true);
   const gap = props.gap ?? 64;
+  const virtualScrolls = useRef<number[]>([]);
+  const virtualPos = useRef(0);
+  const pos = useRef(0);
 
-  const scroll = (dir: "left" | "right") => {
+  useEffect(() => {
+    const ro = new ResizeObserver((_) => {
+      virtualScroll.current = 0;
+      virtualScrolls.current = [];
+      virtualPos.current = 0;
+      pos.current = 0;
+      itemsDiv.current?.scroll({ left: 0, behavior: "smooth" });
+      for (const i of props.items) {
+        virtualScroller();
+      }
+      virtualScrolls.current.pop();
+      virtualScrolls.current.unshift(0);
+      setShowLeftButton(false);
+      setShowRightButton(true);
+    });
+
+    ro.observe(itemsDiv.current!);
+
+    for (const i of props.items) {
+      virtualScroller();
+    }
+    virtualScrolls.current.pop();
+    virtualScrolls.current.unshift(0);
+
+    return () => {
+      ro.disconnect();
+    };
+  }, []);
+
+  const virtualScroller = () => {
     if (itemsDiv.current && fadeRightRef.current && fadeLeftRef.current) {
       const containerWidth = itemsDiv.current.clientWidth;
 
-      const scrollAmount =
-        (itemsDiv.current?.scrollWidth - (props.items.length - 1) * gap) /
-        props.items.length;
+      let itemWidths: number[] = [];
 
-      let leftScroll = itemsDiv.current.scrollLeft;
-      itemsDiv.current.scroll({
-        left:
-          leftScroll +
-          (dir === "right" ? scrollAmount + gap : -scrollAmount - gap),
-        behavior: "smooth",
+      props.items.forEach((item, index) => {
+        if (index === 0)
+          return itemWidths.push(
+            itemsDiv.current?.children[index].clientWidth!
+          );
+
+        itemWidths.push(
+          itemWidths[index - 1] + itemsDiv.current?.children[index].clientWidth!
+        );
       });
 
-      leftScroll =
-        leftScroll +
-        (dir === "right" ? scrollAmount + gap : -scrollAmount - gap) -
-        60;
+      let scrollWidthPossible = 0;
 
-      const showLeftFade = !(leftScroll < 1);
-      const showRightFade = !(
-        leftScroll + containerWidth + gap >=
-        itemsDiv.current.scrollWidth
-      );
+      itemWidths.forEach((width) => {
+        if (width <= containerWidth + virtualScroll.current)
+          scrollWidthPossible = width;
+      });
 
-      setShowLeftButton(showLeftFade);
-      setShowRightButton(showRightFade);
-
-      if (showLeftFade) {
-        fadeLeftRef.current.classList.add("visible");
-      } else {
-        fadeLeftRef.current.classList.remove("visible");
+      if (
+        scrollWidthPossible <=
+          virtualScrolls.current[virtualScrolls.current.length - 1] &&
+        virtualScrolls.current.length !== 0
+      ) {
+        return false;
       }
 
-      if (showRightFade) {
-        fadeRightRef.current.classList.add("visible");
-      } else {
-        fadeRightRef.current.classList.remove("visible");
-      }
+      virtualScroll.current = scrollWidthPossible;
+      virtualScrolls.current.push(scrollWidthPossible);
+
+      virtualPos.current += 1;
+      return true;
     }
+  };
+
+  const scroll = (dir: "left" | "right") => {
+    if (dir === "left") {
+      pos.current -= 1;
+    } else {
+      pos.current += 1;
+    }
+
+    const showLeftFade = pos.current !== 0;
+    const showRightFade = pos.current + 1 !== virtualScrolls.current.length;
+
+    setShowLeftButton(showLeftFade);
+    setShowRightButton(showRightFade);
+
+    if (showLeftFade) {
+      fadeLeftRef.current?.classList.add("visible");
+    } else {
+      fadeLeftRef.current?.classList.remove("visible");
+    }
+
+    if (showRightFade) {
+      fadeRightRef.current?.classList.add("visible");
+    } else {
+      fadeRightRef.current?.classList.remove("visible");
+    }
+
+    itemsDiv.current?.scroll({
+      left: virtualScrolls.current[pos.current],
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -95,6 +155,7 @@ export const Carousel = (props: {
           transition: "opacity 0.2s ease",
           zIndex: 101,
         }}
+        disabled={!showLeftButton}
         shadow
         scale={1.5}
         px={0.6}
@@ -114,6 +175,7 @@ export const Carousel = (props: {
           transform: "translateY(-50%)",
           zIndex: 101,
         }}
+        disabled={!showRightButton}
         shadow
         scale={1.5}
         px={0.6}

@@ -1,15 +1,11 @@
-import { Button, Grid, Page, Spacer, Text, useTheme } from "@geist-ui/core";
+import { Button, Page, Spacer, Text, useTheme } from "@geist-ui/core";
 import Image from "next/image";
 import React from "react";
 import { Carousel } from "../components/Carousel";
 import Link from "next/link";
 import Layout from "@/components/Layout";
-import mvpApp1 from "@/images/mvp-app/1.png";
-import mvpApp2 from "@/images/mvp-app/2.png";
-import mvpApp3 from "@/images/mvp-app/3.png";
-import mvpApp4 from "@/images/mvp-app/4.png";
-import mvpApp5 from "@/images/mvp-app/5.png";
-import MvpSvg from "@/images/mvp.svg";
+import randomRobloxGame1 from "@/images/random-roblox-game/rrg1.png";
+import randomRobloxGame2 from "@/images/random-roblox-game/rrg2.png";
 import { ArrowRight } from "@geist-ui/react-icons";
 import { css } from "@emotion/react";
 
@@ -18,58 +14,28 @@ const handleDragStart: React.DragEventHandler<HTMLImageElement> = (e) =>
 
 const items = [
   <Image
-    key="mvpApp1"
-    width={404 / 1.5}
+    key="random-roblox-game-1"
+    width={1132 / 2}
     onDragStart={handleDragStart}
-    height={830 / 1.5}
-    src={mvpApp1}
+    height={779 / 2}
+    src={randomRobloxGame1}
     alt={""}
     placeholder="blur"
     priority
   />,
   <Image
-    key="mvpApp2"
-    width={404 / 1.5}
+    key="random-roblox-game-2"
+    width={1132 / 2}
     onDragStart={handleDragStart}
-    height={830 / 1.5}
-    src={mvpApp2}
-    alt={""}
-    placeholder="blur"
-    priority
-  />,
-  <Image
-    key="mvpApp3"
-    width={404 / 1.5}
-    onDragStart={handleDragStart}
-    height={830 / 1.5}
-    src={mvpApp3}
-    alt={""}
-    placeholder="blur"
-    priority
-  />,
-  <Image
-    key="mvpApp4"
-    width={404 / 1.5}
-    onDragStart={handleDragStart}
-    height={830 / 1.5}
-    src={mvpApp4}
-    alt={""}
-    placeholder="blur"
-    priority
-  />,
-  <Image
-    key="mvpApp5"
-    width={404 / 1.5}
-    onDragStart={handleDragStart}
-    height={830 / 1.5}
-    src={mvpApp5}
+    height={779 / 2}
+    src={randomRobloxGame2}
     alt={""}
     placeholder="blur"
     priority
   />,
 ];
 
-const MobileApps = () => {
+const RandomRobloxGame = () => {
   const theme = useTheme();
 
   return (
@@ -102,9 +68,6 @@ const MobileApps = () => {
           </Link>
         </Page.Header>
         <Page.Content>
-          <MvpSvg
-            style={{ transform: "scale(0.5)", transformOrigin: "center left" }}
-          />
           <h1
             css={css`
               font-size: 2.25rem;
@@ -113,21 +76,17 @@ const MobileApps = () => {
               }
             `}
           >
-            My Virtual Pet App
+            Random Roblox Game
           </h1>
           <Text h4 style={{ fontWeight: 500 }}>
-            A tamagotchi style take care of your pet game.
+            Generate a random roblox game.
           </Text>
-          <Text>- Full android & iOS support</Text>
+          <Text>- Able to filter only frontpage games</Text>
           <Text>- App in early beta</Text>
           <Text>
             - Created with{" "}
-            <Link
-              href="https://reactnative.dev"
-              target="_blank"
-              rel="noreferrer"
-            >
-              React Native
+            <Link href="https://nextjs.org" target="_blank" rel="noreferrer">
+              Next.js
             </Link>
           </Text>
           <Spacer />
@@ -147,14 +106,9 @@ const MobileApps = () => {
           >
             Overview
           </h2>
-          <Text style={{ maxWidth: 900 }} p>
-            My Virtual Pet to bring people closer together by letting them feed
-            and care for virtual pets. It was originally a web app with 3d pets
-            and activities such as taking your pet to the cinema with your
-            friends or washing, cuddling with your pet. Later, I abandoned the
-            web app and started working on a mobile app which I am yet to
-            complete. The mobile app features 3d pets and 2d &apos;pixel
-            pets&apos;.
+          <Text style={{ maxWidth: 500 }} p>
+            Random roblox game is a simple website that gives you a random
+            roblox game from the front page or randomly.
           </Text>
           <Spacer />
           <Spacer
@@ -174,56 +128,31 @@ const MobileApps = () => {
             Technical Details
           </h2>
           <Text style={{ maxWidth: 900 }} p>
-            The My Virtual Pet app is built with{" "}
+            The random roblox game website is built with{" "}
             <Link
               href="https://reactnative.dev"
               target="_blank"
               rel="noreferrer"
             >
-              React Native
-            </Link>{" "}
-            &{" "}
-            <Link href="https://expo.dev" target="_blank" rel="noreferrer">
-              Expo
-            </Link>{" "}
-            to support iOS and Android devices. For the backend I originally
-            used{" "}
-            <Link href="https://prisma.io" target="_blank" rel="noreferrer">
-              Prisma
-            </Link>{" "}
-            on a{" "}
-            <Link href="https://socket.io" target="_blank" rel="noreferrer">
-              Socket.IO
-            </Link>{" "}
-            server. However, instead of a Socket.IO server, I&apos;m using{" "}
-            <Link
-              href="https://apollographql.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Apollo GraphQL
+              Next.js
             </Link>
-            . For authentication, I&apos;m using{" "}
-            <Link
-              href="https://discord.com/developers/docs/topics/oauth2"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Discord OAuth2
-            </Link>
-            . This provides an easy way to implement avatars.
+            , and I am using the built-in API routes from version 12.
+          </Text>
+          <Text style={{ maxWidth: 900 }} p>
+            If you toggle the front page only games on, when it generates it, it
+            gets the games on the front page through each category. Combines
+            them all together and picks a random one. If you do not check this
+            box, it generates random numbers and for each number tries to query
+            roblox to see if these games exist. If they do then it checks if it
+            is joinable and not private. Then it picks the first one and sends
+            it back to the user.
           </Text>
           <Text style={{ maxWidth: 900 }} p>
             I am using{" "}
             <Link href="https://vercel.com" target="_blank" rel="noreferrer">
               Vercel
             </Link>{" "}
-            to host any promotional page and for the backend I&apos;m using the
-            free tier of{" "}
-            <Link href="https://fly.io" target="_blank" rel="noreferrer">
-              Fly.io
-            </Link>
-            .
+            to host the site.
           </Text>
           <Spacer />
           <Spacer
@@ -233,7 +162,7 @@ const MobileApps = () => {
             style={{ background: theme.palette.accents_2 }}
           />
           <Text style={{ maxWidth: 700 }} h3>
-            Want your own app?
+            Want your own website?
           </Text>
           <Button iconRight={<ArrowRight size={20} />} type="success" shadow>
             <p style={{ paddingRight: 20 }}>Get in touch</p>
@@ -264,4 +193,4 @@ const MobileApps = () => {
   );
 };
 
-export default MobileApps;
+export default RandomRobloxGame;
