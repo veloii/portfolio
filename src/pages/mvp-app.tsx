@@ -52,7 +52,6 @@ const MobileApps = () => {
 
   return (
     <Layout>
-      {" "}
       <Page className="page-responsive">
         <Page.Header height={0.25}>
           <Link href="/">
@@ -81,7 +80,7 @@ const MobileApps = () => {
           </Link>
         </Page.Header>
         <Page.Content>
-          <Text h1>My Virtual Pet Mobile</Text>
+          <Text h1>My Virtual Pet App</Text>
           <Text h2>Overview</Text>
           <Text h4 style={{ fontWeight: 500 }}>
             A tamagotchi style take care of your pet game.

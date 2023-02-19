@@ -4,21 +4,21 @@ import { useTheme, Grid, Text } from "@geist-ui/core";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useState } from "react";
-import phone from "@/images/phone.png";
-import desktop from "@/images/desktop.png";
-import roblox from "@/images/roblox.png";
+import mvpApp from "@/images/mvp-app.png";
+import unifiedBookmarks from "@/images/unified-bookmarks.png";
+import randomRobloxGame from "@/images/random-roblox-game.png";
 import Tilt from "react-parallax-tilt";
 import Link from "next/link";
 
 export const SelectionCards = () => {
   const theme = useTheme();
-  const [mobileLoading, setMobileLoading] = useState(true);
-  const [toolLoading, setToolLoading] = useState(true);
-  const [desktopLoading, setDesktopLoading] = useState(true);
+  const [mvpAppLoading, setMvpAppLoading] = useState(true);
+  const [randomRobloxGameLoading, setRandomRobloxGameLoading] = useState(true);
+  const [unifiedBookmarksLoading, setUnifiedBookmarksLoading] = useState(true);
 
-  const [desktopHover, setDesktopHover] = useState(false);
-  const [toolHover, setToolHover] = useState(false);
-  const [mobileHover, setMobileHover] = useState(false);
+  const [unifiedBookmarksHover, setUnifiedBookmarksHover] = useState(false);
+  const [randomRobloxGameHover, setRandomRobloxGameHover] = useState(false);
+  const [mvpAppHover, setMvpAppHover] = useState(false);
 
   return (
     <Grid.Container style={{ gap: 32, maxWidth: 1530 }}>
@@ -42,8 +42,8 @@ export const SelectionCards = () => {
           <motion.h5
             initial={{ opacity: 0, translateY: 5, translateZ: 25 }}
             animate={{
-              opacity: mobileHover ? 1 : 0,
-              translateY: mobileHover ? 0 : 5,
+              opacity: mvpAppHover ? 1 : 0,
+              translateY: mvpAppHover ? 0 : 5,
               translateZ: 20,
             }}
             style={{
@@ -56,7 +56,7 @@ export const SelectionCards = () => {
               pointerEvents: "none",
             }}
           >
-            design files are provided by you
+            click to inspect
           </motion.h5>
           <Text
             h3
@@ -71,16 +71,16 @@ export const SelectionCards = () => {
               bottom: 18,
             }}
           >
-            Mobile Apps
+            My Virtual Pet App
           </Text>
-          <Link href="/mobile-apps">
+          <Link href="/mvp-app">
             <motion.div
               transition={{ duration: 0.5, type: "spring" }}
               animate={{
-                opacity: desktopHover || toolHover ? 0.5 : 1,
+                opacity: unifiedBookmarksHover || randomRobloxGameHover ? 0.5 : 1,
               }}
-              onHoverStart={() => setMobileHover(true)}
-              onHoverEnd={() => setMobileHover(false)}
+              onHoverStart={() => setMvpAppHover(true)}
+              onHoverEnd={() => setMvpAppHover(false)}
               style={{
                 position: "relative",
                 width: "100%",
@@ -106,9 +106,9 @@ export const SelectionCards = () => {
               ></div>
               <Image
                 priority
-                className={mobileLoading ? "unblur" : ""}
-                onLoadingComplete={() => setMobileLoading(true)}
-                src={phone}
+                className={mvpAppLoading ? "unblur" : ""}
+                onLoadingComplete={() => setMvpAppLoading(true)}
+                src={mvpApp}
                 placeholder="blur"
                 style={{ objectFit: "cover" }}
                 draggable={false}
@@ -139,8 +139,8 @@ export const SelectionCards = () => {
           <motion.h5
             initial={{ opacity: 0, translateY: 5, translateZ: 25 }}
             animate={{
-              opacity: desktopHover ? 1 : 0,
-              translateY: desktopHover ? 0 : 5,
+              opacity: unifiedBookmarksHover ? 1 : 0,
+              translateY: unifiedBookmarksHover ? 0 : 5,
               translateZ: 20,
             }}
             style={{
@@ -153,7 +153,7 @@ export const SelectionCards = () => {
               pointerEvents: "none",
             }}
           >
-            design files are provided by you
+            click to inspect
           </motion.h5>
           <Text
             h3
@@ -168,16 +168,16 @@ export const SelectionCards = () => {
               bottom: 18,
             }}
           >
-            Fully Functional Dashboards
+            Unified Bookmarks
           </Text>
           <Link href="/mobile-apps">
             <motion.div
               transition={{ duration: 0.5, type: "spring" }}
               animate={{
-                opacity: toolHover || mobileHover ? 0.5 : 1,
+                opacity: randomRobloxGameHover || mvpAppHover ? 0.5 : 1,
               }}
-              onHoverStart={() => setDesktopHover(true)}
-              onHoverEnd={() => setDesktopHover(false)}
+              onHoverStart={() => setUnifiedBookmarksHover(true)}
+              onHoverEnd={() => setUnifiedBookmarksHover(false)}
               style={{
                 position: "relative",
                 width: "100%",
@@ -203,9 +203,9 @@ export const SelectionCards = () => {
               ></div>
               <Image
                 priority
-                className={desktopLoading ? "unblur" : ""}
-                onLoadingComplete={() => setDesktopLoading(true)}
-                src={desktop}
+                className={unifiedBookmarksLoading ? "unblur" : ""}
+                onLoadingComplete={() => setUnifiedBookmarksLoading(true)}
+                src={unifiedBookmarks}
                 placeholder="blur"
                 style={{ objectFit: "cover" }}
                 draggable={false}
@@ -238,6 +238,25 @@ export const SelectionCards = () => {
           glarePosition="bottom"
           glareBorderRadius="20px"
         >
+          <motion.h5
+            initial={{ opacity: 0, translateY: 5, translateZ: 25 }}
+            animate={{
+              opacity: randomRobloxGameHover ? 1 : 0,
+              translateY: randomRobloxGameHover ? 0 : 5,
+              translateZ: 20,
+            }}
+            style={{
+              fontStyle: "italic",
+              position: "absolute",
+              width: "100%",
+              left: 12.5 + 36,
+              bottom: 50,
+              color: "white",
+              pointerEvents: "none",
+            }}
+          >
+            click to inspect
+          </motion.h5>
           <Text
             h3
             style={{
@@ -251,16 +270,16 @@ export const SelectionCards = () => {
               bottom: 18,
             }}
           >
-            Simple Tools
+            Random Roblox Game
           </Text>
           <Link href="/mobile-apps">
             <motion.div
               transition={{ duration: 0.5, type: "spring" }}
               animate={{
-                opacity: desktopHover || mobileHover ? 0.5 : 1,
+                opacity: unifiedBookmarksHover || mvpAppHover ? 0.5 : 1,
               }}
-              onHoverStart={() => setToolHover(true)}
-              onHoverEnd={() => setToolHover(false)}
+              onHoverStart={() => setRandomRobloxGameHover(true)}
+              onHoverEnd={() => setRandomRobloxGameHover(false)}
               style={{
                 position: "relative",
                 width: "100%",
@@ -286,9 +305,9 @@ export const SelectionCards = () => {
               ></div>
               <Image
                 priority
-                className={toolLoading ? "unblur" : ""}
-                onLoadingComplete={() => setToolLoading(true)}
-                src={roblox}
+                className={randomRobloxGameLoading ? "unblur" : ""}
+                onLoadingComplete={() => setRandomRobloxGameLoading(true)}
+                src={randomRobloxGame}
                 placeholder="blur"
                 style={{ objectFit: "cover" }}
                 draggable={false}
