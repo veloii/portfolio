@@ -17,6 +17,7 @@ import { SelectionCards } from "@/components/SelectionCards";
 import { IntroText } from "@/components/IntroText";
 import { Header } from "@/components/Header";
 import X from "@geist-ui/react-icons/x";
+import Layout from "@/components/Layout";
 
 export type SelectionCard = "mobile" | "dashboard" | "tools";
 
@@ -24,18 +25,20 @@ const HomePage: NextPage = () => {
   const theme = useTheme();
 
   return (
-    <Page className="page-responsive">
-      <Page.Header pt={theme.layout.gap}>
-        <Header />
-      </Page.Header>
-      <Page.Content>
-        <div id="intro">
-          <IntroText />
-          <SelectionCards />
-        </div>
-      </Page.Content>
-      <Page.Footer></Page.Footer>
-    </Page>
+    <Layout>
+      <Page className="page-responsive">
+        <Page.Header pt={theme.layout.gap}>
+          <Header />
+        </Page.Header>
+        <Page.Content>
+          <div id="intro">
+            <IntroText />
+            <SelectionCards />
+          </div>
+        </Page.Content>
+        <Page.Footer></Page.Footer>
+      </Page>
+    </Layout>
   );
 };
 
