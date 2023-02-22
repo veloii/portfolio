@@ -43,6 +43,24 @@ const HomePage: NextPage = () => {
         </Page.Content>
         <Page.Footer></Page.Footer>
       </Page>
+      <style jsx global>{`
+        .blur {
+          filter: blur(10px);
+        }
+
+        .unblur {
+          animation: unblur 0.5s ease-in-out;
+        }
+
+        @keyframes unblur {
+          from {
+            filter: blur(10px);
+          }
+          to {
+            filter: blur(0);
+          }
+        }
+      `}</style>
     </Layout>
   );
 };

@@ -1,4 +1,11 @@
-import { GeistProvider, CssBaseline, Grid, Page, Tabs } from "@geist-ui/core";
+import {
+  GeistProvider,
+  CssBaseline,
+  Grid,
+  Page,
+  Tabs,
+  Themes,
+} from "@geist-ui/core";
 import { AppProps } from "next/app";
 import "inter-ui/inter.css";
 import "../styles/globals.css";
@@ -7,17 +14,21 @@ import Layout from "@/components/Layout";
 import { AnimatePresence } from "framer-motion";
 import { DefaultSeo } from "next-seo";
 
-const variants = {
-  hidden: { opacity: 0, x: -200, y: 0 },
-  enter: { opacity: 1, x: 0, y: 0 },
-  exit: { opacity: 0, x: 0, y: -100 },
-};
+const brandColourTheme = Themes.createFromLight({
+  type: "base",
+  palette: {
+    successLighter: "#eec8c3",
+    successLight: "#f4b6ae",
+    success: "#f09488",
+    successDark: "#bf695e",
+  },
+});
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const url = `https://veloi.me${router.route}`;
 
   return (
-    <GeistProvider>
+    <GeistProvider themeType="base" themes={[brandColourTheme]}>
       <DefaultSeo
         openGraph={{
           type: "website",

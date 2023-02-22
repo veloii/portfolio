@@ -2,6 +2,9 @@ import { css } from "@emotion/react";
 import { useTheme } from "@geist-ui/core";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
+import logo from "@/images/black.png";
+import wave from "@/images/wave.png";
 
 export const IntroText = () => {
   const theme = useTheme();
@@ -17,8 +20,41 @@ export const IntroText = () => {
           }
         `}
       >
-        Hi, I am Veloi. I&apos;m a software developer experienced in React +
-        UIs.
+        <Image
+          priority
+          width={500 / 11}
+          height={500 / 11}
+          alt="Wave"
+          style={{ marginRight: 1, marginBottom: -3 }}
+          src={wave}
+          placeholder="blur"
+        />
+        . I am{" "}
+        <Image
+          priority
+          width={516 / 12}
+          height={463 / 12}
+          alt="Veloi"
+          style={{ marginLeft: 12, marginRight: 12 }}
+          src={logo}
+          placeholder="blur"
+        />
+        . I&apos;m a software developer ⟶{" "}
+        <span
+          style={{
+            border: "solid black",
+            borderWidth: 5,
+            paddingLeft: 10,
+            paddingRight: 10,
+            borderRadius: 15,
+            marginRight: 10,
+            background: "black",
+            color: "white",
+          }}
+        >
+          React 🡘 UIs
+        </span>
+        .
       </h1>
       <h1
         css={css`

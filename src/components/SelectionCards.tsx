@@ -49,20 +49,6 @@ export const SelectionCards = () => {
         grad="rgba(20, 20, 200, 1) 90%"
         {...generateProps(4)}
       />
-      <style jsx global>{`
-        .unblur {
-          animation: unblur 0.5s ease-in-out;
-        }
-
-        @keyframes unblur {
-          from {
-            filter: blur(10px);
-          }
-          to {
-            filter: blur(0);
-          }
-        }
-      `}</style>
     </Grid.Container>
   );
 };

@@ -121,8 +121,8 @@ export const SelectionCard = ({
             ></div>
             <Image
               priority
-              className={loading ? "unblur" : ""}
-              onLoadingComplete={() => setLoading(true)}
+              className={loading ? "blur" : "unblur"}
+              onLoadingComplete={() => setLoading(false)}
               src={source}
               placeholder="blur"
               style={{ objectFit: "cover" }}
