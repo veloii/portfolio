@@ -8,6 +8,7 @@ import randomRobloxGame1 from "@/images/random-roblox-game/rrg1.png";
 import randomRobloxGame2 from "@/images/random-roblox-game/rrg2.png";
 import { ArrowRight } from "@geist-ui/react-icons";
 import { css } from "@emotion/react";
+import { NextSeo } from "next-seo";
 
 const handleDragStart: React.DragEventHandler<HTMLImageElement> = (e) =>
   e.preventDefault();
@@ -40,6 +41,10 @@ const RandomRobloxGame = () => {
 
   return (
     <Layout>
+      <NextSeo
+        title="Random Roblox Game - Overview"
+        description="Generate a random roblox game."
+      />
       <Page style={{ maxWidth: 1000 }} className="page-responsive">
         <Page.Header height={0.25}>
           <Link href="/">

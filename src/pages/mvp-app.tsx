@@ -12,6 +12,7 @@ import mvpApp5 from "@/images/mvp-app/5.png";
 import MvpSvg from "@/images/mvp.svg";
 import { ArrowRight } from "@geist-ui/react-icons";
 import { css } from "@emotion/react";
+import { NextSeo } from "next-seo";
 
 const handleDragStart: React.DragEventHandler<HTMLImageElement> = (e) =>
   e.preventDefault();
@@ -74,6 +75,10 @@ const MobileApps = () => {
 
   return (
     <Layout>
+      <NextSeo
+        title="My Virtual Pet App - Overview"
+        description="A tamagotchi style take care of your pet game."
+      />
       <Page style={{ maxWidth: 1000 }} className="page-responsive">
         <Page.Header height={0.25}>
           <Link href="/">

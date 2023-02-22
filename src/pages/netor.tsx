@@ -19,6 +19,7 @@ import MvpSvg from "@/images/mvp.svg";
 import { ArrowRight } from "@geist-ui/react-icons";
 import { css } from "@emotion/react";
 import logo from "@/images/netor/logo.png";
+import { NextSeo } from "next-seo";
 
 const handleDragStart: React.DragEventHandler<HTMLImageElement> = (e) =>
   e.preventDefault();
@@ -61,6 +62,10 @@ const Netor = () => {
 
   return (
     <Layout>
+      <NextSeo
+        title="Netor Discord Bot - Overview"
+        description="A full moderation logging bot for your server."
+      />
       <Page style={{ maxWidth: 1000 }} className="page-responsive">
         <Page.Header height={0.25}>
           <Link href="/">

@@ -12,6 +12,7 @@ import unifiedBookmarks5 from "@/images/unified-bookmarks/unified-bookmarks-ligh
 import unLogo from "@/images/un-logo.png";
 import { ArrowRight } from "@geist-ui/react-icons";
 import { css } from "@emotion/react";
+import { NextSeo } from "next-seo";
 
 const handleDragStart: React.DragEventHandler<HTMLImageElement> = (e) =>
   e.preventDefault();
@@ -77,6 +78,10 @@ const UnfiiedBookmarks = () => {
 
   return (
     <Layout>
+      <NextSeo
+        title="Unified Bookmarks - Overview"
+        description="A service which provides an easy bookmarking solution for teams."
+      />
       <Page style={{ maxWidth: 1000 }} className="page-responsive">
         <Page.Header height={0.25}>
           <Link href="/">

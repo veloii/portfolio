@@ -5,6 +5,7 @@ import "../styles/globals.css";
 import React from "react";
 import Layout from "@/components/Layout";
 import { AnimatePresence } from "framer-motion";
+import { DefaultSeo } from "next-seo";
 
 const variants = {
   hidden: { opacity: 0, x: -200, y: 0 },
@@ -17,6 +18,21 @@ const App = ({ Component, pageProps, router }: AppProps) => {
 
   return (
     <GeistProvider>
+      <DefaultSeo
+        openGraph={{
+          type: "website",
+          locale: "en_US",
+          url: "https://veloi.me",
+          siteName: "Veloi Portfolio",
+        }}
+        themeColor="#f1a59b"
+        twitter={{
+          handle: "@veloi_",
+          site: "@veloi_",
+          cardType: "summary_large_image",
+        }}
+      />
+
       <CssBaseline />
       <AnimatePresence
         mode="wait"
