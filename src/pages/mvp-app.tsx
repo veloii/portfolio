@@ -13,6 +13,7 @@ import MvpSvg from "@/images/mvp.svg";
 import { ArrowRight } from "@geist-ui/react-icons";
 import { css } from "@emotion/react";
 import { NextSeo } from "next-seo";
+import { CommissionLink } from "@/components/CommissionLink";
 
 const handleDragStart: React.DragEventHandler<HTMLImageElement> = (e) =>
   e.preventDefault();
@@ -240,9 +241,11 @@ const MobileApps = () => {
           <Text style={{ maxWidth: 700 }} h3>
             Want your own app?
           </Text>
-          <Button iconRight={<ArrowRight size={20} />} type="success" shadow>
-            <p style={{ paddingRight: 20 }}>Get in touch</p>
-          </Button>
+          <CommissionLink>
+            <Button iconRight={<ArrowRight size={20} />} type="success" shadow>
+              <p style={{ paddingRight: 20 }}>Get in touch</p>
+            </Button>
+          </CommissionLink>
           <Spacer
             h={0.01}
             marginTop={1}

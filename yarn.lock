@@ -1493,6 +1493,19 @@
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
+"@typeform/embed-react@^2.15.0":
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/@typeform/embed-react/-/embed-react-2.15.0.tgz#4f283c311ae8a5f75a563291747faebbd4f2e5a4"
+  integrity sha512-OO3gT96yMv+vMflXjYbsSS84qizjfkdCO39Y5kPalpRVvydCgT3KoxM+tdrWY6L2ciD1q+yQs1NZbYh63xFkuw==
+  dependencies:
+    "@typeform/embed" "2.8.0"
+    fast-deep-equal "^3.1.3"
+
+"@typeform/embed@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@typeform/embed/-/embed-2.8.0.tgz#45456b47103d27e818e426d782e0af0976909db8"
+  integrity sha512-+64uxHXbOefA9euw9gQUZ3WAvh+61wH6Vbl3x9WYQ3tAY2iM9gPTYhfxPDMdx/79KuRMIbHUKWpTD6PflaWy8w==
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"

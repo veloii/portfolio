@@ -5,6 +5,8 @@ import React from "react";
 import Image from "next/image";
 import logo from "@/images/black.png";
 import wave from "@/images/wave.png";
+import { PopupButton } from "@typeform/embed-react";
+import { CommissionLink } from "./CommissionLink";
 
 export const IntroText = () => {
   const theme = useTheme();
@@ -67,7 +69,7 @@ export const IntroText = () => {
       >
         Hi, I am Veloi. A software developer.
       </h1>
-      <Link href="">
+      <CommissionLink>
         <p
           className="hover-arrow-text"
           css={css`
@@ -92,7 +94,7 @@ export const IntroText = () => {
             </g>
           </svg>
         </p>
-      </Link>
+      </CommissionLink>
     </>
   );
 };
