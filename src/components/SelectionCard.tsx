@@ -12,7 +12,7 @@ export const SelectionCard = ({
   title,
   grad,
   source,
-  minWidth = "auto",
+  minWidth,
   link,
   flexGrow = 1,
   hoverIndexState,
@@ -38,8 +38,9 @@ export const SelectionCard = ({
         width: 100%;
         z-index: ${entered ? "1000" : "0"};
         @media (min-width: ${theme.breakpoints.md.min}) {
-          width: 350px;
-          min-width: ${minWidth};
+          width: ${minWidth ?? "350px"};
+          flex-grow: 0;
+          min-width: ${minWidth ?? "auto"};
         }
       `}
     >
