@@ -19,6 +19,7 @@ export const SelectionCards = () => {
     <Grid.Container style={{ gap: 32, flexWrap: "wrap" }}>
       <SelectionCard
         type="square"
+        priority
         link="/mvp-app"
         source={mvpApp}
         title="My Virtual Pet App"
@@ -27,6 +28,7 @@ export const SelectionCards = () => {
       />
       <SelectionCard
         type="wide"
+        priority
         link="/unified-bookmarks"
         source={unifiedBookmarks}
         title="Unified Bookmarks"

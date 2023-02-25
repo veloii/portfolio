@@ -11,12 +11,14 @@ export const SelectionCard = ({
   setHover,
   title,
   grad,
+  priority = true,
   source,
   link,
   type,
   hoverIndexState,
 }: {
   title: string;
+  priority?: boolean;
   hover: boolean;
   link: string;
   type: "wide" | "square";
@@ -126,7 +128,7 @@ export const SelectionCard = ({
               click to inspect
             </m.p>
             <Image
-              priority
+              priority={priority}
               src={source}
               placeholder="blur"
               style={{ objectFit: "cover" }}
