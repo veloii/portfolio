@@ -18,35 +18,35 @@ export const SelectionCards = () => {
   return (
     <Grid.Container style={{ gap: 32, flexWrap: "wrap" }}>
       <SelectionCard
+        type="square"
         link="/mvp-app"
         source={mvpApp}
         title="My Virtual Pet App"
-        grad="rgba(100, 120, 255, 1) 90%"
+        grad="rgba(0, 170, 255, 1) 100%"
         {...generateProps(1)}
       />
       <SelectionCard
-        minWidth="700px"
+        type="wide"
         link="/unified-bookmarks"
-        flexGrow={2}
         source={unifiedBookmarks}
         title="Unified Bookmarks"
-        grad="rgba(255, 0, 255, 1) 90%"
+        grad="rgba(255, 0, 222, 1) 100%"
         {...generateProps(2)}
       />
       <SelectionCard
+        type="square"
         link="/random-roblox-game"
         source={randomRobloxGame}
         title="Random Roblox Game"
-        grad="rgba(200, 0, 105, 1) 90%"
+        grad="rgba(204, 53, 87, 1) 100%"
         {...generateProps(3)}
       />
       <SelectionCard
-        minWidth="700px"
+        type="wide"
         link="/netor"
-        flexGrow={2}
         source={netor}
         title="Netor Discord Bot"
-        grad="rgba(20, 20, 200, 1) 90%"
+        grad="rgba(0, 0, 255, 1) 100%"
         {...generateProps(4)}
       />
     </Grid.Container>

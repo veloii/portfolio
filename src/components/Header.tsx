@@ -8,7 +8,6 @@ import { css } from "@emotion/react";
 export const Header = () => {
   const router = useRouter();
   const theme = useTheme();
-  const [loading, setLoading] = useState(false);
 
   return (
     <Grid.Container alignItems="center" justify="space-between">
@@ -22,8 +21,6 @@ export const Header = () => {
         >
           <Image
             priority
-            className={loading ? "blur" : "unblur"}
-            onLoadingComplete={() => setLoading(false)}
             width={516 / 15}
             height={463 / 15}
             alt="Veloi"
@@ -33,7 +30,7 @@ export const Header = () => {
           <h3
             style={{
               margin: 0,
-              color: theme.palette.success,
+              color: theme.palette.successDark,
               letterSpacing: "0.025em",
             }}
           >
