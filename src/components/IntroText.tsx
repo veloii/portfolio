@@ -21,7 +21,6 @@ export const IntroText = () => {
         `}
       >
         <Image
-          priority
           width={500 / 11}
           height={500 / 11}
           alt="Wave"
@@ -31,7 +30,6 @@ export const IntroText = () => {
         />
         . I am{" "}
         <Image
-          priority
           width={516 / 12}
           height={463 / 12}
           alt="Veloi"
