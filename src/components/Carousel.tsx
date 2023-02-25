@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import { Button } from "@geist-ui/core";
-import { ArrowLeft, ArrowRight } from "@geist-ui/react-icons";
+import ArrowLeft from "@geist-ui/react-icons/arrowLeft";
+import ArrowRight from "@geist-ui/react-icons/arrowRight";
 import React, { useEffect, useRef, useState } from "react";
 
 export const Carousel = (props: {
@@ -10,8 +11,6 @@ export const Carousel = (props: {
 }) => {
   const itemsDiv = useRef<HTMLDivElement>(null);
   const virtualScroll = useRef(0);
-  const fadeLeftRef = useRef<HTMLDivElement>(null);
-  const fadeRightRef = useRef<HTMLDivElement>(null);
   const [showLeftButton, setShowLeftButton] = useState<boolean>(false);
   const [showRightButton, setShowRightButton] = useState<boolean>(true);
   const gap = props.gap ?? 64;
@@ -49,7 +48,7 @@ export const Carousel = (props: {
   }, []);
 
   const virtualScroller = () => {
-    if (itemsDiv.current && fadeRightRef.current && fadeLeftRef.current) {
+    if (itemsDiv.current) {
       const containerWidth = itemsDiv.current.clientWidth;
 
       let itemWidths: number[] = [];
@@ -101,18 +100,6 @@ export const Carousel = (props: {
     setShowLeftButton(showLeftFade);
     setShowRightButton(showRightFade);
 
-    if (showLeftFade) {
-      fadeLeftRef.current?.classList.add("visible");
-    } else {
-      fadeLeftRef.current?.classList.remove("visible");
-    }
-
-    if (showRightFade) {
-      fadeRightRef.current?.classList.add("visible");
-    } else {
-      fadeRightRef.current?.classList.remove("visible");
-    }
-
     itemsDiv.current?.scroll({
       left: virtualScrolls.current[pos.current],
       behavior: "smooth",
@@ -126,10 +113,6 @@ export const Carousel = (props: {
         max-width: ${props.maxWidth ?? "1300px"};
       `}
     >
-      <div className="fade-overlay">
-        <div ref={fadeLeftRef} className="fade-left"></div>
-        <div ref={fadeRightRef} className="fade-right visible"></div>
-      </div>
       <div
         ref={itemsDiv}
         css={css`

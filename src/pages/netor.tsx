@@ -1,12 +1,4 @@
-import {
-  Button,
-  Code,
-  Grid,
-  Page,
-  Spacer,
-  Text,
-  useTheme,
-} from "@geist-ui/core";
+import { Button, Code, Page, Spacer, Text, useTheme } from "@geist-ui/core";
 import Image from "next/image";
 import React from "react";
 import { Carousel } from "../components/Carousel";
@@ -15,8 +7,7 @@ import Layout from "@/components/Layout";
 import netor1 from "@/images/netor/netor-punishments.png";
 import netor2 from "@/images/netor/netor-ums.png";
 import netor3 from "@/images/netor/netor-users.png";
-import MvpSvg from "@/images/mvp.svg";
-import { ArrowRight } from "@geist-ui/react-icons";
+import ArrowRight from "@geist-ui/react-icons/arrowRight";
 import { css } from "@emotion/react";
 import logo from "@/images/netor/logo.png";
 import { NextSeo } from "next-seo";

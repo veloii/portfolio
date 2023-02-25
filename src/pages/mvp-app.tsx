@@ -1,4 +1,4 @@
-import { Button, Grid, Page, Spacer, Text, useTheme } from "@geist-ui/core";
+import { Button, Page, Spacer, Text, useTheme } from "@geist-ui/core";
 import Image from "next/image";
 import React from "react";
 import { Carousel } from "../components/Carousel";
@@ -10,7 +10,7 @@ import mvpApp3 from "@/images/mvp-app/3.png";
 import mvpApp4 from "@/images/mvp-app/4.png";
 import mvpApp5 from "@/images/mvp-app/5.png";
 import MvpSvg from "@/images/mvp.svg";
-import { ArrowRight } from "@geist-ui/react-icons";
+import ArrowRight from "@geist-ui/react-icons/arrowRight";
 import { css } from "@emotion/react";
 import { NextSeo } from "next-seo";
 import { CommissionLink } from "@/components/CommissionLink";

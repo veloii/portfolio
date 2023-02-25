@@ -1,11 +1,9 @@
 import { css } from "@emotion/react";
 import { useTheme } from "@geist-ui/core";
-import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import logo from "@/images/black.png";
 import wave from "@/images/wave.png";
-import { PopupButton } from "@typeform/embed-react";
 import { CommissionLink } from "./CommissionLink";
 
 export const IntroText = () => {

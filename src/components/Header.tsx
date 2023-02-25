@@ -1,12 +1,10 @@
-import { Grid, Tabs, useTheme } from "@geist-ui/core";
-import { useRouter } from "next/router";
+import { Grid, useTheme } from "@geist-ui/core";
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 import logo from "@/images/veloi.png";
 import { css } from "@emotion/react";
 
 export const Header = () => {
-  const router = useRouter();
   const theme = useTheme();
 
   return (

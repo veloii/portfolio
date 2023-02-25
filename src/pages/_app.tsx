@@ -1,16 +1,8 @@
-import {
-  GeistProvider,
-  CssBaseline,
-  Grid,
-  Page,
-  Tabs,
-  Themes,
-} from "@geist-ui/core";
+import { GeistProvider, CssBaseline, Themes } from "@geist-ui/core";
 import { AppProps } from "next/app";
 import "inter-ui/inter.css";
 import "../styles/globals.css";
 import React from "react";
-import Layout from "@/components/Layout";
 import { AnimatePresence } from "framer-motion";
 import { DefaultSeo } from "next-seo";
 

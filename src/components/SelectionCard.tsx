@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
-import { Grid, useTheme, Text } from "@geist-ui/core";
-import { motion } from "framer-motion";
+import { Grid, useTheme } from "@geist-ui/core";
+import { m } from "framer-motion";
 import Link from "next/link";
 import React, { useState } from "react";
 import Tilt from "react-parallax-tilt";
@@ -45,7 +45,7 @@ export const SelectionCard = ({
       `}
     >
       <Link aria-label={title} href={link}>
-        <motion.div
+        <m.div
           transition={{ duration: 0.2, ease: "easeInOut" }}
           animate={{
             opacity: hoverIndexState && !hover ? 0.5 : 1,
@@ -79,7 +79,7 @@ export const SelectionCard = ({
               }}
             ></div>
 
-            <motion.h2
+            <m.h2
               initial={{ translateY: 0 }}
               animate={{
                 translateY: hover ? -15 : 0,
@@ -101,8 +101,8 @@ export const SelectionCard = ({
               }}
             >
               {title}
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               initial={{ opacity: 0, translateY: 5 }}
               animate={{
                 opacity: hover ? 1 : 0,
@@ -124,7 +124,7 @@ export const SelectionCard = ({
               }}
             >
               click to inspect
-            </motion.p>
+            </m.p>
             <Image
               priority
               src={source}
@@ -135,7 +135,7 @@ export const SelectionCard = ({
               fill
             />
           </Tilt>
-        </motion.div>
+        </m.div>
       </Link>
     </Grid>
   );

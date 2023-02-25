@@ -1,5 +1,7 @@
 import React, { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { LazyMotion, m } from "framer-motion";
+
+const loadFeatures = () => import("@/lib/features").then((res) => res.default);
 
 type Props = {
   children: ReactNode;
@@ -13,15 +15,17 @@ const variants = {
 
 const Layout = ({ children }: Props): JSX.Element => (
   <div>
-    <motion.main
-      initial="hidden"
-      animate="enter"
-      exit="exit"
-      variants={variants}
-      transition={{ ease: "easeOut" }}
-    >
-      {children}
-    </motion.main>
+    <LazyMotion features={loadFeatures}>
+      <m.main
+        initial="hidden"
+        animate="enter"
+        exit="exit"
+        variants={variants}
+        transition={{ ease: "easeOut" }}
+      >
+        {children}
+      </m.main>
+    </LazyMotion>
   </div>
 );
 

@@ -6,7 +6,7 @@ import Link from "next/link";
 import Layout from "@/components/Layout";
 import randomRobloxGame1 from "@/images/random-roblox-game/rrg1.png";
 import randomRobloxGame2 from "@/images/random-roblox-game/rrg2.png";
-import { ArrowRight } from "@geist-ui/react-icons";
+import ArrowRight from "@geist-ui/react-icons/arrowRight";
 import { css } from "@emotion/react";
 import { NextSeo } from "next-seo";
 import { CommissionLink } from "@/components/CommissionLink";

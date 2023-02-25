@@ -1,4 +1,4 @@
-import { Button, Grid, Page, Spacer, Text, useTheme } from "@geist-ui/core";
+import { Button, Page, Spacer, Text, useTheme } from "@geist-ui/core";
 import Image from "next/image";
 import React from "react";
 import { Carousel } from "../components/Carousel";
@@ -10,7 +10,7 @@ import unifiedBookmarks3 from "@/images/unified-bookmarks/unified-bookmarks-ligh
 import unifiedBookmarks4 from "@/images/unified-bookmarks/unified-bookmarks-light-settings.webp";
 import unifiedBookmarks5 from "@/images/unified-bookmarks/unified-bookmarks-light-mobile-overview.webp";
 import unLogo from "@/images/un-logo.png";
-import { ArrowRight } from "@geist-ui/react-icons";
+import ArrowRight from "@geist-ui/react-icons/arrowRight";
 import { css } from "@emotion/react";
 import { NextSeo } from "next-seo";
 import { CommissionLink } from "@/components/CommissionLink";
