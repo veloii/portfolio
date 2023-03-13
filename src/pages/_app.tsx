@@ -5,6 +5,7 @@ import "../styles/globals.css";
 import React from "react";
 import { AnimatePresence } from "framer-motion";
 import { DefaultSeo } from "next-seo";
+import { Analytics } from "@vercel/analytics/react";
 
 const brandColourTheme = Themes.createFromLight({
   type: "base",
@@ -21,6 +22,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
 
   return (
     <GeistProvider themeType="base" themes={[brandColourTheme]}>
+      <Analytics />
       <DefaultSeo
         openGraph={{
           type: "website",
