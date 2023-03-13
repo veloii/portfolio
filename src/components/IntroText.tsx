@@ -69,7 +69,7 @@ export const IntroText = () => {
         <p
           className="hover-arrow-text"
           css={css`
-            font-size: 1.1rem;
+            font-size: 1rem;
             @media (min-width: ${theme.breakpoints.sm.min}) {
               font-size: 1.25rem;
             }

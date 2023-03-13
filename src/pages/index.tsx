@@ -16,7 +16,7 @@ const HomePage: NextPage = () => {
     <Layout>
       <NextSeo
         title="Veloi Portfolio"
-        description="Hi, I am Veloi. I'm a software developer experienced in React + UIs."
+        description="Hi, I am Veloi. I'm a software developer experienced in React and user experience. I code in Typescript and have built many react projects such as Unified Bookmarks."
       />
       <Page className="page-responsive">
         <Page.Header pt={theme.layout.gap}>

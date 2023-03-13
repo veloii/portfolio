@@ -27,7 +27,15 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <meta
+            name="keywords"
+            content="zellr, nextjs, portfolio, react, javascript, js, ts, typescript, velo, veloi, veloii"
+          />
+          <meta name="language" content="English" />
+          <meta name="revisit-after" content="5 days" />
+          <meta name="author" content="veloi" />
+        </Head>
         <body>
           <Main />
           <NextScript />
