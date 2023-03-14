@@ -1,4 +1,4 @@
-# Velois's portfolio
+# Veloi's portfolio
 
 A neat portfolio showing off my work. Made with [Geist](https://geist-ui.dev/en-us) and [Next.js](https://nextjs.org).
 
